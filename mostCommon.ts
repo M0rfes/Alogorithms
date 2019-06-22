@@ -8,13 +8,19 @@ const mostCommon: (
   } else {
     const [h, ...r] = word;
     const newlist = list.filter(w => w[depth] === h);
+    console.log(list, 'list\n');
+    console.log(newlist, 'new\n');
+    console.log(word, 'w\n');
+    console.log(depth);
+    console.log(
+      '-----------------------------------------------------------------------------------------------------------------------------------------------',
+    );
     return newlist.length === 0
-      ? mostCommon(list, r, word.length - r.length + depth)
+      ? mostCommon(list, r, word.length - r.length + depth + 1)
       : mostCommon(newlist, r, word.length - r.length + depth);
   }
 };
-const ol = ['most', 'common', 'coming', 'list', 'acetone', 'community'].map(
+const ol = ['most', 'common', 'list', 'acetone', 'community', 'coming'].map(
   w => [...w],
 );
-const obj: { [x: number]: string[] } = { ...ol };
-console.log(mostCommon(ol, [...'comunity']));
+console.log(mostCommon(ol, [...'camunity']));
