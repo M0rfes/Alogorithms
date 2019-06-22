@@ -8,13 +8,6 @@ const mostCommon: (
   } else {
     const [h, ...r] = word;
     const newlist = list.filter(w => w[depth] === h);
-    console.log(list, 'list\n');
-    console.log(newlist, 'new\n');
-    console.log(word, 'w\n');
-    console.log(depth);
-    console.log(
-      '-----------------------------------------------------------------------------------------------------------------------------------------------',
-    );
     return newlist.length === 0
       ? mostCommon(list, r, word.length - r.length + depth + 1)
       : mostCommon(newlist, r, word.length - r.length + depth);
